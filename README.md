@@ -1,7 +1,7 @@
 # Cards_Prototype
 Das Informatikprojekt
 
-Ich habe das Projekt strukturiert, die Klassen sind schön jetzt schön in Ordnern.
+Ich habe das Projekt strukturiert, die Klassen sind jetzt schön in Ordnern.
 
 API:
 - API

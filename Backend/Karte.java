@@ -1,5 +1,7 @@
 package Backend;
 
-public class Karte {
+import java.io.Serializable;
+
+public class Karte implements Serializable {
   private DatenElement daten;
 }

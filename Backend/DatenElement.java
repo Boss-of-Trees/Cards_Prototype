@@ -1,4 +1,6 @@
 package Backend;
 
-public class DatenElement {
+import java.io.Serializable;
+
+public class DatenElement implements Serializable {
 }

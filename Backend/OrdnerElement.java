@@ -1,4 +1,6 @@
 package Backend;
 
-public interface OrdnerElement {
+import java.io.Serializable;
+
+public interface OrdnerElement extends Serializable {
 }

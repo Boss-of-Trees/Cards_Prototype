@@ -7,6 +7,8 @@ public class Tests {
     Stapel st = new Stapel();
     OrdnerStruktur os = new OrdnerStruktur();
 
-    OrdnerSpeicherer osp = new OrdnerSpeicherer();
+    OrdnerSpeicherer ordnerSpeicherer = new OrdnerSpeicherer();
+
+    ordnerSpeicherer.speichern("test", os);
 
 }

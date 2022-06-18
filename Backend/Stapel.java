@@ -12,7 +12,11 @@ public class Stapel implements Serializable {
     {
       anfang = null;
     }
-
+    
+    public Karte KarteGeben()
+    {
+        return anfang;
+    }
 
     public int laenge(int anzahl)
     

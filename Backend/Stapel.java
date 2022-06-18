@@ -47,9 +47,9 @@ public class Stapel implements Serializable {
     }
     }
 
-    //bitte ändern damit es richtig funktioniert
-    public String nameGeben(){
-        return null;
+    //wurde geändert
+    public String nameGeben(Karte k){
+        return k;
     }
 
 }

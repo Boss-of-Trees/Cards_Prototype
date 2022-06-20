@@ -116,4 +116,5 @@ public class Karte implements Serializable {
     {
         return nachfolger;
     }
+}
     

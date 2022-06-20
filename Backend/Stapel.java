@@ -23,7 +23,7 @@ public class Stapel implements Serializable {
     {
         anzahl = 0;
       if (anfang == null)
-      {
+        {
         return 0;
         }
         else
@@ -49,10 +49,11 @@ public class Stapel implements Serializable {
       kneu = new Karte(dneu);
       anfang = kneu;
     }
-    }
+    
 
     //wurde geändert
-    public String nameGeben(Karte k){
+    public String nameGeben(Karte k)
+    {
         return k;
     }
 

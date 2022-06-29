@@ -70,7 +70,8 @@ class Start
     
     
     menu_f.setJMenuBar(menu_mb);
-    menu_f.setSize(1000,700);  
+    menu_f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    menu_f.setUndecorated(true);  
     menu_f.setLayout(null);  
     menu_f.setVisible(true);  
   }  

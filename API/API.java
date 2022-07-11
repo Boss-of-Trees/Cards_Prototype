@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class API {
 
-    private Benutzerverwaltung bv;
+    private UserManager bv;
     private Ordner momentanerOrdner;
     private Stapel momentanerStapel;
 

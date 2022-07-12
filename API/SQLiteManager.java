@@ -149,7 +149,7 @@ public class SQLiteManager
         		}
     }
 
-    public static void main(String[] args) 
+    public static void haupt(String[] args) 
     {
 		Scanner passwortEingabe = new Scanner(System.in);//Scanner zur Nutzereingabe
 		System.out.println("Vergebe ein Passwort");//Auffordderung zur Passwortvergabe

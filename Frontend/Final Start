@@ -1,0 +1,253 @@
+import javax.swing.*;  
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.RoundRectangle2D;
+class StartNeu  
+{  
+    private JFrame menu_f;
+  
+  
+  StartNeu()
+  {  
+    menu_f= new JFrame("Home");  
+    
+    
+    JPanel gui = new JPanel(new BorderLayout(15, 15)) 
+    {
+
+     @Override
+     public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
+      Point point1 = new Point(10, 10);
+      Point point2 = new Point(
+      getWidth() - 10, 
+      getHeight() - 10);
+      final GradientPaint gp = new GradientPaint(
+      point1, new Color(0, 0, 0),
+      point2, new Color(102, 0, 153),
+      true);
+      final Graphics2D g2 = (Graphics2D) g;
+      g2.setPaint(gp);
+      g.fillRect(0, 0, getWidth(), getHeight());
+     }
+    };
+    
+    // JPanel Kasten = new JPanel(new BorderLayout(15, 15))
+    // {
+
+     // @Override
+     // public void paintComponent(Graphics g) {
+      // super.paintComponent(g);
+
+      // Point point1 = new Point(10, 10);
+      // Point point2 = new Point(
+      // getWidth() - 10, 
+      // getHeight() - 10);
+      // final GradientPaint gp = new GradientPaint(
+      // point1, Color.WHITE,
+      // point2, new Color(102, 0, 153),
+      // true);
+      // final Graphics2D g2 = (Graphics2D) g;
+      // g2.setPaint(gp);
+      // g.fillRect(0, 0, getWidth(), getHeight());
+     // }
+    // };
+    // Kasten.setSize( 4000, 60 );
+    
+    
+    
+    JLabel label_l1,label_l2;  
+    label_l1=new JLabel("Willkommen UserName!"); 
+    label_l1.setForeground(Color.WHITE);
+    label_l1.setFont(new Font("Poppins", Font.BOLD, 17));
+    label_l1.setBounds(50,15, 300,30);  
+    //label_l2=new JLabel("Deine Decks:");  
+    //label_l2.setBounds(50,100, 200,30); 
+    menu_f.add(label_l1); 
+    //menu_f.add(label_l2);
+    
+    
+    // JPanel panel3 = new JPanel();
+    // panel3.setBackground(Color.white);
+    // panel3.setBounds(770,50, 200,30);
+    // panel3.setSize( 80, 100 );
+    // menu_f.add(panel3);
+    
+
+    JButton bt2 = new JButton("Neues Deck");
+    bt2.setBackground(Color.white); 
+    bt2.setBounds(50,150, 200,30); 
+    bt2.setSize( 250, 40 );
+    menu_f.add(bt2);
+    
+    
+    // JButton bt4 = new JButton("Deckname 1");
+    // bt4.setBackground(Color.white); 
+    // bt4.setBounds(50,200, 200,30); 
+    // bt4.setSize( 250, 60 );
+    // menu_f.add(bt4);
+    
+    
+    // JButton bt3 = new JButton("Abfragen");
+    // bt3.setBackground(Color.gray); 
+    // bt3.setBounds(700,200, 200,30); 
+    // bt3.setSize( 80, 60 );
+    // menu_f.add(bt3);
+    
+    
+    
+    JButton bt7 = new JButton("Ausloggen");
+    bt7.setBackground(Color.white); 
+    // bt7.setLayout(new BorderLayout());
+    // menu_f.add(bt7, BorderLayout.EAST);
+    bt7.setBounds(1300,10, 30,30);
+    bt7.setSize( 120, 40 );
+    menu_f.add(bt7);
+    
+    
+    
+    // JPanel panel = new JPanel();
+    // panel.setBackground(new Color(0, 153, 0));
+    // panel.setBounds(50,200, 200,30);
+    // panel.setSize( 800, 60 );
+    // menu_f.add(panel);
+    
+    
+    JPanel panel1 = new JPanel();
+    panel1.setBackground(new Color(102, 0, 153));
+    panel1.setLayout(new BorderLayout());
+    //panel1.add(panel1, BorderLayout.NORTH);
+    panel1.setSize( 4000, 60 );
+    JButton btn = new JButton("Push me"); 
+    
+    
+    
+    
+    
+    JLabel label_l3;  
+    label_l3=new JLabel("Deckname hier"); 
+    label_l3.setForeground(Color.WHITE);
+    label_l3.setFont(new Font("Poppins", Font.BOLD, 17));
+    label_l3.setBounds(128,350, 300,30);  
+    //label_l2=new JLabel("Deine Decks:");  
+    //label_l2.setBounds(50,100, 200,30); 
+    menu_f.add(label_l3);
+    
+    
+    JButton btt1 = new JButton("Bearbeiten");
+    btt1.setBackground(Color.black);
+    btt1.setForeground(Color.white);
+    // bt7.setLayout(new BorderLayout());
+    // menu_f.add(bt7, BorderLayout.EAST);
+    btt1.setBounds(810,365, 200,30);
+    btt1.setSize( 200, 50 );
+    menu_f.add(btt1);
+    
+    
+    
+    JButton btt2 = new JButton("Abfragen");
+    btt2.setBackground(Color.black);
+    btt2.setForeground(Color.white);
+    // bt7.setLayout(new BorderLayout());
+    // menu_f.add(bt7, BorderLayout.EAST);
+    btt2.setBounds(810,425, 200,30);
+    btt2.setSize( 200, 50 );
+    menu_f.add(btt2);
+    
+    
+    
+    
+    JPanel Pic = new JPanel();
+    Pic.setBackground(Color.blue);
+    Pic.setBounds(80,270, 200,30);
+    Pic.setSize( 220, 200 );
+    
+    menu_f.add(Pic);
+    
+    
+    
+    JPanel Ground = new JPanel();
+    Ground.setBackground(Color.white);
+    Ground.setBounds(50,350, 200,30);
+    Ground.setSize( 1000, 140 );
+    
+    menu_f.add(Ground);
+   
+    
+    
+    JLabel label_l4;  
+    label_l4=new JLabel("Deckname hier"); 
+    label_l4.setForeground(Color.WHITE);
+    label_l4.setFont(new Font("Poppins", Font.BOLD, 17));
+    label_l4.setBounds(128,600, 300,30);  
+    //label_l2=new JLabel("Deine Decks:");  
+    //label_l2.setBounds(50,100, 200,30); 
+    menu_f.add(label_l4);
+    
+    
+    JButton btt3 = new JButton("Bearbeiten");
+    btt3.setBackground(Color.black);
+    btt3.setForeground(Color.white);
+    // bt7.setLayout(new BorderLayout());
+    // menu_f.add(bt7, BorderLayout.EAST);
+    btt3.setBounds(810,615, 200,30);
+    btt3.setSize( 200, 50 );
+    menu_f.add(btt3);
+    
+    
+    
+    JButton btt4 = new JButton("Abfragen");
+    btt4.setBackground(Color.black);
+    btt4.setForeground(Color.white);
+    // bt7.setLayout(new BorderLayout());
+    // menu_f.add(bt7, BorderLayout.EAST);
+    btt4.setBounds(810,675, 200,30);
+    btt4.setSize( 200, 50 );
+    menu_f.add(btt4);
+    
+    
+    
+    
+    JPanel Pic2 = new JPanel();
+    Pic2.setBackground(Color.blue);
+    Pic2.setBounds(80,520, 200,30);
+    Pic2.setSize( 220, 200 );
+    
+    menu_f.add(Pic2);
+    
+    
+    
+    JPanel Ground1 = new JPanel();
+    Ground1.setBackground(Color.white);
+    Ground1.setBounds(50,600, 200,30);
+    Ground1.setSize( 1000, 140 );
+    
+    menu_f.add(Ground1);
+   
+    
+    
+    
+    
+    
+    menu_f.add(panel1);
+    menu_f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    menu_f.add(gui);
+    menu_f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);          
+    menu_f.setLocationByPlatform(true);            
+    menu_f.pack();
+    menu_f.setVisible(true);
+    
+    
+    
+    
+    
+  }  
+  public static void main(String args[])  
+  {  
+    new StartNeu();  
+  }
+  
+  
+  
+}

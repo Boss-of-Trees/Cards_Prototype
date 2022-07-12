@@ -1,13 +1,14 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ordner implements OrdnerElement{
+public class Ordner implements OrdnerElement, Serializable {
 
     Ordner vorgaenger;
     String name;
     ArrayList<Ordner> unterordner;
     ArrayList<String> unterordnerNamen;
     ArrayList<Referenz> referenzen;
-    ArrayList<String> referenzenNamen;
+    ArrayList<String> referenzNamen;
 
     public Ordner(String name, Ordner vorgaenger)
     {
@@ -15,27 +16,33 @@ public class Ordner implements OrdnerElement{
         if(vorgaenger == null)
         {
             this.vorgaenger = this;
-        } else {
+        } 
+        else
+        {
             this.vorgaenger = vorgaenger;
         }
-        
+        unterordner = new ArrayList<>();
+        unterordnerNamen = new ArrayList<>();
+        referenzen = new ArrayList<>();
+        referenzNamen = new ArrayList<>();
     }
 
     
-    public void einfuegen(OrdnerElement neuesElement, Ordner vorgaenger)
+    public void einfuegen(OrdnerElement neuesElement, Ordner vorgaenger) 
     {
         
         if(neuesElement.getClass().getName() == "Referenz")
         {
             
-            if(!referenzenNamen.contains(neuesElement.nameGeben()))
+            if (!referenzNamen.contains(neuesElement.nameGeben()))
             {
                 neuesElement.vorgaengerSetzten(this);
                 referenzen.add((Referenz) neuesElement);
-                referenzenNamen.add(neuesElement.nameGeben());
+                referenzNamen.add(neuesElement.nameGeben());
             }
             
-        } else 
+        }
+        else
         {
             
             if(!unterordnerNamen.contains(neuesElement.nameGeben()))
@@ -46,20 +53,14 @@ public class Ordner implements OrdnerElement{
             }
             
         }
-        
+
     }
     
-    
-    public void vorgaengerSetzten(Ordner ordner)
-    {
-        vorgaenger = ordner;
-    }
-     
-    
-    public void ordnerEntfernen(String name)
+
+    public void ordnerEntfernen(String name) 
     {
         
-        if (unterordnerNamen.contains(name))
+        if(unterordnerNamen.contains(name))
         {
             
             for(int i = 0; i < unterordnerNamen.size(); i++)
@@ -76,31 +77,32 @@ public class Ordner implements OrdnerElement{
         }
         
     }
-
     
-    public void refernzEntfernen(String name) 
+
+    public void refernzEntfernen(String name)
     {
         
-        if(referenzenNamen.contains(name))
+        if(referenzNamen.contains(name))
         {
             
-            for(int i = 0; i < referenzenNamen.size(); i++)
+            for(int i = 0; i < referenzNamen.size(); i++)
             {
                 
-                if(referenzenNamen.get(i).equals(name))
+                if(referenzNamen.get(i).equals(name))
                 {
-                    referenzenNamen.remove(i);
+                    referenzNamen.remove(i);
+                    referenzen.get(i).entfernen();
                     referenzen.remove(i);
                 }
-                
-            }
                 
             }
             
         }
         
-        
-    public Ordner ordnerGeben(String name)
+    }
+    
+
+    public Ordner ordnerGeben(String name) 
     {
         
         if(unterordnerNamen.contains(name))
@@ -109,43 +111,43 @@ public class Ordner implements OrdnerElement{
             for(int i = 0; i < unterordnerNamen.size(); i++)
             {
                 
-                if(unterordnerNamen.get(i).equals(name))
+                if(unterordner.get(i).nameGeben().equals(name))
                 {
-                    return unterordner.get(i); 
-                }
-                
+                    return unterordner.get(i);
                 }
                 
             }
-        return null;
-            }
-    
             
-    public Stapel stapelGeben(String name) 
-    {
-        
-        if(referenzenNamen.contains(name))
-        {
-            
-            for(int i = 0; i < referenzenNamen.size(); i++)
-            {
-                
-                if(referenzenNamen.get(i).equals(name))
-                {
-                    return referenzen.get(i).stapelGeben(name); 
-                }
-                
-                }
-                
-            }
+        }
         return null;
     }
-
     
+
+    public Stapel stapelGeben(String name) 
+    {
+       
+        if(referenzNamen.contains(name))
+        {
+            
+            for(int i = 0; i < referenzNamen.size(); i++)
+            {
+                
+                if(referenzNamen.get(i).equals(name))
+                {
+                    return referenzen.get(i).stapelGeben(name);
+                }
+                
+            }
+            
+        }
+        return null;
+    }
+    
+
     public ArrayList<String[]> ordnerStrukturAlsStringGeben()
     {
         ArrayList<String[]> toBeReturned = new ArrayList<>();
-        for (int i = 0 ; i <unterordnerNamen.size(); i++)
+        for(int i = 0; i < unterordnerNamen.size(); i++)
         {
             String[] asString = new String[2];
             asString[0] = "ordner";
@@ -153,22 +155,36 @@ public class Ordner implements OrdnerElement{
             toBeReturned.add(asString);
         }
         
-        for (int i = 0 ; i <referenzenNamen.size(); i++)
+        for(int i = 0; i < referenzNamen.size(); i++)
         {
             String[] asString = new String[2];
             asString[0] = "referenz";
-            asString[1] = referenzenNamen.get(i);
+            asString[1] = referenzNamen.get(i);
             toBeReturned.add(asString);
         }
         return toBeReturned;
-        }
+    }
     
 
-    public Ordner vogaengerGeben() {
+    public Ordner vogaengerGeben() 
+    {
         return vorgaenger;
     }
-
     
+
+    public String nameGeben()
+    {
+        return name;
+    }
+    
+
+    public void vorgaengerSetzten(Ordner ordner)
+    {
+        vorgaenger = ordner;
+    }
+
+}
+
     public String nameGeben() {
         return name;
     }

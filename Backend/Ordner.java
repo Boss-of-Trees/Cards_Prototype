@@ -1,3 +1,5 @@
+package Backend;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -183,11 +185,4 @@ public class Ordner implements OrdnerElement, Serializable {
         vorgaenger = ordner;
     }
 
-}
-
-    public String nameGeben() {
-        return name;
-    }
-
-    
 }

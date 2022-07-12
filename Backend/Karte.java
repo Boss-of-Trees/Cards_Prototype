@@ -2,12 +2,12 @@ package Backend;
 
 import java.io.Serializable;
 
-public class Karte implements Serializable {
-
+public class Karte implements Serializable
+{
 
     private DatenElement daten;
 
-    private Karte nachfolger; 
+    private Karte nachfolger;
 
 
     public Karte(DatenElement d)
@@ -23,11 +23,11 @@ public class Karte implements Serializable {
     {
         return daten.vgeben();
     }
-    
-    
+
+
     public int restLaenge(int anzahl)
     {
-        
+
         if(nachfolger == null)
         {
             return anzahl;
@@ -40,7 +40,7 @@ public class Karte implements Serializable {
     }
     public void hintenEinfuegen(DatenElement dneu)
     {
-        if (nachfolger != null) 
+        if (nachfolger != null)
         {
             nachfolger.hintenEinfuegen(dneu);
         }
@@ -64,7 +64,7 @@ public class Karte implements Serializable {
             {
                 new Karte(dneu);
             }
-            return this; 
+            return this;
         }
         else
         {
@@ -73,48 +73,57 @@ public class Karte implements Serializable {
 
         return null;
     }
-     public Karte besteGeben(Karte beste)
+    public Karte besteGeben(Karte beste)
+    {
+        if(daten.lgeben() > daten.lgeben())
         {
-            if(daten.lgeben() > daten.lgeben())
-            {
             Karte k = beste;
         }
-            else{
+        else{
             if(daten.lgeben()> daten.lgeben())
             {
                 Karte nachfolger = beste;
             }
         }
-            return beste;
-        }
+        return beste;
+    }
     public Karte schlechtesteGeben(Karte schlechteste)
+    {
+        if(daten.lgeben() < daten.lgeben())
         {
-             if(daten.lgeben() < daten.lgeben())
-            {
             Karte k = schlechteste;
         }
-            else{
+        else{
             if(daten.lgeben() < daten.lgeben())
             {
                 Karte nachfolger = schlechteste;
             }
         }
-            return schlechteste;
-        }
-    
-    public void levelsteigen(Karte  karte)
+        return schlechteste;
+    }
+
+    public void levelsteigen(Karte  nachfolger)
     {
         daten.levelsteigen();
-        karte = new Karte(daten);
+        nachfolger = new Karte(daten);
     }
-    public void levelsenken(Karte karte)
+    public void levelsenken(Karte nachfolger)
     {
         daten.levelsinken();
-        karte = new Karte(daten);
+        nachfolger = new Karte(daten);
     }
     public Karte nächsteGeben()
     {
         return nachfolger;
     }
+    public Karte lernstapelgeben(Karte schlechteste)
+    {
+        for(int i = 1; i == 10; i++)
+        {
+            return schlechtesteGeben(schlechteste);
+        }
+        return null;
+    }
+
 }
     

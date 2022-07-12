@@ -107,9 +107,7 @@ public class SQLiteManager
     }
 
     
-    
-    
-    
+
     public String getPassword(String UserName)
     {
         String qry = "SELECT * FROM " + table + " WHERE username = '" + UserName + "'";

@@ -2,29 +2,29 @@ package Backend;
 
 import java.io.Serializable;
 
-public class DatenElement implements Serializable {     
-  
-     private String r;
-     private String v;
-     private int level;
-   
+public class DatenElement implements Serializable
+{
+    private String r;
+    private String v;
+    private int level;
+
     public DatenElement(String ruckseite, String vorderseite)
     {
-       r = ruckseite;
-       v= vorderseite;
-       level = 0;
+        r = ruckseite;
+        v= vorderseite;
+        level = 0;
     }
 
-     // Parametern ruckseite und vorderseite
+    // Parametern ruckseite und vorderseite
     public String rgeben()
     {
-      return r;
+        return r;
     }
-     public String vgeben()
+    public String vgeben()
     {
-      return v;
+        return v;
     }
-     public void rsetzen(String ruck)
+    public void rsetzen(String ruck)
     {
         r = ruck;
     }
@@ -38,7 +38,14 @@ public class DatenElement implements Serializable {
     }
     public void levelsteigen()
     {
-        level = level + 1;
+        if(level != 100)
+        {
+            level = level + 2;
+        }
+        else
+        {
+            level = level;
+        }
     }
     public void levelsinken()
     {
@@ -48,8 +55,7 @@ public class DatenElement implements Serializable {
         }
         else
         {
-            level = level - 1;
+            level = level - 2;
         }
     }
 }
-

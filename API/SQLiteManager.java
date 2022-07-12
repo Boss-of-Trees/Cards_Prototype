@@ -53,27 +53,23 @@ public class SQLiteManager
         }
     }
 
-    public boolean benutzerLoeschen (String userName)
+	
+    public static void benutzerLoeschen(String userName) 
+{
+    try 
+    {  
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        PreparedStatement st = connection.prepareStatement("DELETE FROM Table WHERE name = " + userName + ";");
+        st.executeUpdate(); 
+        connection.close();
+    } 
+    catch(Exception e) 
     {
-        if (this.userExists (userName) == true) //userExists wurde bereits von Till geschrieben
-        {
-            String qry = "SELECT * FROM " + table + " WHERE username = '" + userName + "'";
-            try 
-            {
-                ResultSet rs = connection.createStatement().executeQuery(qry);
-                connection.createStatement().executeQuery(qry) = null;      //setzt die Verbindung zu null zurück
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            return false;       //benutzer ist nicht vorhanden
-        }
-        
+        System.out.println(e);
     }
+}    
     
     public boolean userExists(String userName)
     {

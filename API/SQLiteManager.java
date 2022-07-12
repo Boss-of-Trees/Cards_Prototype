@@ -1,6 +1,7 @@
 package API;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class SQLiteManager
 {
@@ -105,6 +106,10 @@ public class SQLiteManager
         return false;
     }
 
+    
+    
+    
+    
     public String getPassword(String UserName)
     {
         String qry = "SELECT * FROM " + table + " WHERE username = '" + UserName + "'";
@@ -122,6 +127,40 @@ public class SQLiteManager
         }
         return null;
     }
+    
+    static void pruefePassWort(String passWortVergabe)
+    {
+                Scanner eingabe = new Scanner(System.in);//Scanner für Eingabe der zu-überprüfenden Passwörter
+		System.out.println("Gib Passwort ein!!");
+		String passwortPruefung = eingabe.next() ;//Speichern des eingebenen Passwortes
+		int i =1;//Zählvariable für Versuche
+		
+		while(passWortVergabe.equals(passwortPruefung)==false && i<3)
+        		{
+				System.out.println("Passwort falsch. Neuer Versuch");
+				passwortPruefung = eingabe.next();
+				i++;
+        		}	
+		if (passWortVergabe.equals(passwortPruefung)==true)
+        		{
+			System.out.println("Zugang gewährt");
+        		}
+		else 
+        		{
+		System.out.println("Passwort falsch. Zugang verweigert. Wenden Sie sich an den System-Administrator");
+        		}
+    }
+
+    public static void main(String[] args) 
+    {
+		Scanner passwortEingabe = new Scanner(System.in);//Scanner zur Nutzereingabe
+		System.out.println("Vergebe ein Passwort");//Auffordderung zur Passwortvergabe
+		String passWortVergabe = passwortEingabe.next();//Speichern des eingebenen Passwortes
+		pruefePassWort(passWortVergabe);//Methodenaufruf und Übergabe des Passwortes
+    }
+    
+    
+    
 
     public boolean registerUser(String userName, String password)
     {

@@ -52,6 +52,28 @@ public class SQLiteManager
         }
     }
 
+    public boolean benutzerLoeschen (String userName)
+    {
+        if (this.userExists (userName) == true) //userExists wurde bereits von Till geschrieben
+        {
+            String qry = "SELECT * FROM " + table + " WHERE username = '" + userName + "'";
+            try 
+            {
+                ResultSet rs = connection.createStatement().executeQuery(qry);
+                connection.createStatement().executeQuery(qry) = null;      //setzt die Verbindung zu null zurück
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            return false;       //benutzer ist nicht vorhanden
+        }
+        
+    }
+    
     public boolean userExists(String userName)
     {
         String qry = "SELECT * FROM " + table + " WHERE username = '" + userName + "'";
